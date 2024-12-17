@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人主页</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 导航栏 -->
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="#home">首页</a>
+                <a href="#about">关于我</a>
+                <a href="https://blog.chuyuxuan.top" target="_blank">文章列表</a>
+            </div>
+        </nav>
+
+        <!-- 主要内容区 -->
+        <main class="main-content">
+            <!-- 首页部分 -->
+            <section id="home" class="section active">
+                <div class="time-container">
+                    <div class="clock" id="clock">2024-01-01 00:00:00</div>
+                </div>
+                
+                <div class="profile">
+                    <h1 class="username">CHUYUXUAN</h1>
+                    <p class="signature">
+                        <span class="hanzi"></span>
+                        <span class="pinyin"></span>
+                    </p>
+                </div>
+
+                <div class="social-icons">
+                    <a href="https://github.com/Chuyuxuan0v0" class="social-icon" target="_blank">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub">
+                    </a>
+                    <a href="https://blog.chuyuxuan.top" class="social-icon" target="_blank">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/blogger.svg" alt="Blog">
+                    </a>
+                </div>
+            </section>
+
+            <!-- 关于我部分 -->
+            <section id="about" class="section">
+                <div class="about-content">
+                    <h2>关于我</h2>
+                    <div class="quotes">
+                        <p>"生活中最重要的不是所处的位置，而是所朝的方向。" —— 奥利弗·霍姆斯</p>
+                        <p>"不要等待机会，而要创造机会。" —— 培根</p>
+                        <p>"最大的骄傲于最大的自卑都表示心灵的最软弱无力。" —— 斯宾诺莎</p>
+                        <p>"有志者事竟成，破釜沉舟，百二秦关终属楚。" —— 苏轼</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer>
+            <p>© 2024 by CHUYUXUAN form Cursor. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- 修改背景容器 -->
+    <div class="background-container">
+        <div class="background-slider">
+            <img src="imgs/pic1.jpg" 
+                 class="bg-image" alt="背景图片1">
+            <img src="imgs/pic2.jpeg" 
+                 class="bg-image" alt="背景图片2">
+            <img src="imgs/pic3.jpeg" 
+                 class="bg-image" alt="背景图片3">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

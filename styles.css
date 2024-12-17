@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    color: white;
+    overflow: hidden;
+    background: transparent;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: #000;
+}
+
+.background-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.bg-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, filter 1s ease-in-out;
+}
+
+.bg-image.active {
+    opacity: 1;
+}
+
+/* 不同的背景效果类 */
+.effect-blur {
+    filter: brightness(0.6);
+}
+
+.effect-sharp {
+    filter: brightness(0.6);
+}
+
+.effect-glass {
+    filter: brightness(0.65);
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: transparent;
+    backdrop-filter: none;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 0;
+    text-align: center;
+    background: transparent;
+    backdrop-filter: none;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+    padding: 20px 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 25px;
+    font-size: 18px;
+    position: relative;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    color: white;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.main-content {
+    text-align: center;
+    margin-top: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock {
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+.profile {
+    margin-bottom: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.username {
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+.signature {
+    font-family: 'Consolas', monospace;
+    font-size: 24px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.signature .pinyin {
+    color: #f0f0f0;
+    font-size: 24px;
+    min-width: 60px;
+    display: inline-block;
+    text-align: left;
+    font-family: 'Consolas', monospace;
+}
+
+.signature .hanzi {
+    color: white;
+    font-family: "Microsoft YaHei", sans-serif;
+    text-align: right;
+    flex-grow: 0;
+    font-size: 24px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+.social-icon img {
+    width: 100%;
+    height: 100%;
+    filter: invert(1);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background: transparent;
+    backdrop-filter: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+footer:hover {
+    opacity: 1;
+}
+
+footer p {
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+    padding: 10px 0;
+    margin: 0;
+}
+
+/* 页面切换相关样式 */
+.section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.section.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+}
+
+/* 关于我页面样式 */
+.about-content {
+    max-width: 800px;
+    text-align: center;
+    padding: 20px;
+}
+
+.about-content h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.quotes p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    font-style: italic;
+}
+
+/* 文章列表页面样式 */
+.articles-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.articles-content h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.empty-notice {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* 修改时间容器样式 */
+.time-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    gap: 15px;
+}
+
+.separator, .date {
+    display: none;
+}
+ 
